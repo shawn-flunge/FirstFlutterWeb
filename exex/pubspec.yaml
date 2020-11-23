@@ -30,6 +30,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.0
   universal_html: ^1.2.3
+  rflutter_alert: ^1.1.0
   
 dev_dependencies:
   flutter_test:
