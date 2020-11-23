@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:exex/Widgets/navigation_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -23,8 +25,8 @@ class AboutPage extends StatelessWidget {
             color: Colors.black38,
             height: 30,
             thickness: 2,
-            indent: 100,
-            endIndent: 100,
+            indent: 200,
+            endIndent: 200,
           ),
           userInterestSection
         ],
@@ -37,71 +39,87 @@ class AboutPage extends StatelessWidget {
 
 
   Widget userInfoSection = Container(
-    //color: Colors.pink,
+    margin: EdgeInsets.fromLTRB(100, 10, 100, 10),
+    color: Colors.pink,
     padding: const EdgeInsets.all(100),
     
     child: Row(
       //crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.center,
+      // mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        SizedBox(
-          width: 150,
-          height: 150,
-          child: CircleAvatar(
-            backgroundImage: NetworkImage('https://picsum.photos/250?image=9'),
-            backgroundColor: Color(0xFFFFFFFF),
-          ),
-        ),
-        Padding(padding: EdgeInsets.all(30),),
-        Column(
-          // mainAxisSize: MainAxisSize.min,
-            // mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            
-            Text(
-              'flunge',
-              style: TextStyle(fontSize: 40),
+        //프로필사진, 아이디, 간단 소개
+        Row(
+          children: [
+             SizedBox(
+              width: 150,
+              height: 150,
+              child: CircleAvatar(
+                backgroundImage: NetworkImage('https://picsum.photos/250?image=9'),
+                backgroundColor: Color(0xFFFFFFFF),
+              ),
             ),
-            SizedBox(
-              child: Text('spring framework 기말 과제 \n flutter로 작업중'),
-              //width: 100,
-              //height: 100,
+            Padding(padding: EdgeInsets.all(30),),
+            Column(
+              // mainAxisSize: MainAxisSize.min,
+                // mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                
+                Text(
+                  'flunge',
+                  style: TextStyle(fontSize: 40),
+                ),
+                SizedBox(
+                  child: Text('spring framework 기말 과제 \n flutter로 작업중'),
+                  //width: 100,
+                  //height: 100,
+                ),
+              ],
             ),
           ],
         ),
+       
         Padding(padding: EdgeInsets.all(30),),
-        Column(
+
+        //팔로우, 팔로워
+        Row(
           children: <Widget>[
-            Text('팔로우',
-              style: TextStyle(fontSize: 20),
+            Column(
+              children: <Widget>[
+                Text('팔로우',
+                  style: TextStyle(fontSize: 20),
+                ),
+                Text('0', 
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                )
+              ],
             ),
-            Text('0', 
-              style: TextStyle(fontWeight: FontWeight.bold),
+            Padding(padding: EdgeInsets.all(20),),
+            Column(
+              children: <Widget>[
+                Text('팔로워',
+                  style: TextStyle(fontSize: 20),
+                ),
+                Text('0', 
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                )
+              ],
             )
           ],
         ),
-        Padding(padding: EdgeInsets.all(20),),
-        Column(
-          children: <Widget>[
-            Text('팔로워',
-              style: TextStyle(fontSize: 20),
-            ),
-            Text('0', 
-              style: TextStyle(fontWeight: FontWeight.bold),
-            )
-          ],
-        )
+        
         
       ],
     ),
   );
 
   Widget userInterestSection = Container(
-
+    margin: EdgeInsets.all(300),
     child : Column(
       children: <Widget>[
         //NavigationBar()
+        card,
       ],
     )
 
@@ -130,7 +148,33 @@ class AboutPage extends StatelessWidget {
   );
 
 
+  static var card = 
+    Card(
+      
+      clipBehavior: Clip.antiAlias,
+      child: Column(
+        children: <Widget>[
+          ListTile(
+            title: Text('title'),
+            subtitle: Text(
+              'subTitle',
+              style: TextStyle(color: Colors.black38),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Text('dummy text dummy text dummy text dummy text'),
+          ),
+          Image.network('https://picsum.photos/250?image=9')
+        ],
+      ),
+    );
+
 
 }
+
+
+
+
 
 
