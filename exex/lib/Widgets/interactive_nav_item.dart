@@ -51,7 +51,7 @@ class InteractiveTextState extends State<InteractiveText>{
 
   bool _hovering = false;
 
-  final TextStyle pageTitleStyle = TextStyle(fontSize: 10.0);
+  final TextStyle pageTitleStyle = TextStyle(fontSize: 20.0);
 
   @override
   Widget build(BuildContext context) {
