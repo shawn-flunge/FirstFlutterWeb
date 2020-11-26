@@ -40,7 +40,7 @@ class AboutPage extends StatelessWidget {
 
   Widget userInfoSection = Container(
     margin: EdgeInsets.fromLTRB(100, 10, 100, 10),
-    color: Colors.pink,
+    //color: Colors.pink,
     padding: const EdgeInsets.all(100),
     
     child: Row(
@@ -150,7 +150,7 @@ class AboutPage extends StatelessWidget {
 
   static var card = 
     Card(
-      
+      elevation: 20,
       clipBehavior: Clip.antiAlias,
       child: Column(
         children: <Widget>[

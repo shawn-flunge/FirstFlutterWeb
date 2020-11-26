@@ -1,8 +1,10 @@
 
   
+
 import 'package:flutter/material.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:universal_html/prefer_universal/js.dart';
+
 
 class HomePage extends StatelessWidget {
   @override
@@ -45,6 +47,10 @@ class HomePage extends StatelessWidget {
             RaisedButton(
               child: Text('vvvvvvvvvvvvvvvvvvvvvvvvvvvvv'),
               onPressed: () { _showMyDialog(context);}
+            ),
+            RaisedButton(
+              child: Text('show post'),
+              onPressed: () { showPostDialog(context);}
             ),
         ],
       )
@@ -224,6 +230,7 @@ class HomePage extends StatelessWidget {
     return showDialog<void>(
       context: context,
       barrierDismissible: false, // user must tap button!
+      
       builder: (context) {
         return AlertDialog(
           title: Text('AlertDialog Title'),
@@ -249,12 +256,41 @@ class HomePage extends StatelessWidget {
     );
   }
 
+  Future<void> showPostDialog(BuildContext context){
+    return showGeneralDialog(
+      context: context,
+      barrierDismissible: false,
+      barrierColor: Colors.pink[500].withAlpha(30),
+      barrierLabel: "ff" ,
+      transitionDuration: new Duration(seconds: 1),
+      
+      pageBuilder: (BuildContext con, Animation ani, Animation secAni){
+        return Center(
+          child: Container(
+            width: MediaQuery.of(context).size.width -100,
+            height: MediaQuery.of(context).size.height -500,
+            color: Colors.lightBlue,
+            child: RaisedButton(
+              child : Text('close'),
+              
+              onPressed: (){
+                Navigator.of(context).pop(context);
+              },
+            ),
+          ),
+        );
+      }
+
+    );
+  }
+  
+
 
 
 _zxv(BuildContext context) {
     Alert(
       context: context,
-      type: AlertType.warning,
+      type: AlertType.none,
       title: "RFLUTTER ALERT",
       desc: "Flutter is more awesome with RFlutter Alert.",
       buttons: [
