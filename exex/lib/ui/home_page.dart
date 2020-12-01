@@ -52,6 +52,14 @@ class HomePage extends StatelessWidget {
               child: Text('show post'),
               onPressed: () { showPostDialog(context);}
             ),
+            RaisedButton(
+              child: Text('show login'),
+              onPressed: () { showLoginDialog(context);}
+            ),
+            RaisedButton(
+              child: Text('show zxv'),
+              onPressed: () { _zxv(context);}
+            ),
         ],
       )
     );
@@ -285,6 +293,50 @@ class HomePage extends StatelessWidget {
   }
   
 
+Future<void> showLoginDialog(BuildContext context){
+    return showGeneralDialog(
+      context: context,
+      
+      barrierColor: Colors.pink[500].withAlpha(30),
+      transitionDuration: new Duration(milliseconds: 400),
+      
+      pageBuilder: (BuildContext con, Animation ani, Animation secAni){
+        return Center(
+          child: Container(
+            
+            width: MediaQuery.of(context).size.width -500,
+            height: MediaQuery.of(context).size.height -200,
+            color: Colors.lightBlue,
+            child: Column(
+
+              children: [
+                TextField(
+                  
+                ),
+                TextField(
+                  
+                ),
+                RaisedButton(
+                  child: Text('login'),
+                  onPressed: (){
+                     print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+                    Navigator.of(context).pop();
+
+                   
+                  },
+                )
+
+
+              ],
+            ) 
+          ),
+        );
+      }
+
+    );
+  }
+  
+
 
 
 _zxv(BuildContext context) {
@@ -316,6 +368,5 @@ _zxv(BuildContext context) {
       ],
     ).show();
   }
-
 }
 
